@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Saber TATA | Data Science Engineer Portfolio</title>
+<meta name="description" id="meta-desc" content="Portfolio of Mohamed Saber TATA, Data Science engineering student: machine learning, NLP, computer vision and time-series forecasting projects.">
+<meta property="og:title" content="Mohamed Saber TATA | Data Science Engineer">
+<meta property="og:description" content="Machine learning, NLP, computer vision and forecasting projects.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#040711" id="meta-theme">
+<script>try{if(localStorage.getItem("theme")==="light")document.documentElement.classList.add("light")}catch(e){}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%A0%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], mono: ['"Space Grotesk"', 'monospace'] },
+        boxShadow: {
+          'glow-cyan': '0 0 35px -5px rgba(0, 210, 255, 0.35)',
+          'glow-blue': '0 0 45px -5px rgba(0, 102, 255, 0.45)'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-padding-top: 6rem; }
+  body { background-color: #040711; color: #e2e8f0; overflow-x: hidden; }
+  .bg-mesh-glow {
+    background:
+      radial-gradient(circle at 50% 12%, rgba(0,102,255,.28) 0%, transparent 48%),
+      radial-gradient(circle at 18% 30%, rgba(0,210,255,.12) 0%, transparent 40%),
+      radial-gradient(circle at 82% 40%, rgba(59,130,246,.15) 0%, transparent 45%);
+  }
+  .grid-lines {
+    background-image: linear-gradient(to right, rgba(255,255,255,.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .glass-card {
+    background: rgba(14,23,42,.65);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 16px 36px -10px rgba(0,0,0,.5);
+    transition: border-color .3s, transform .3s, box-shadow .3s;
+  }
+  .glass-card:hover { border-color: rgba(56,189,248,.35); }
+  .glass-card-highlight {
+    background: linear-gradient(135deg, rgba(14,44,94,.8) 0%, rgba(6,21,48,.85) 100%);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(56,189,248,.4);
+    box-shadow: 0 0 30px -5px rgba(0,136,255,.35);
+  }
+  .glass-pill {
+    background: rgba(15,23,42,.7);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .perspective-stage { perspective: 1300px; }
+  .screen-tilt {
+    transform: rotateX(15deg) translateZ(0);
+    transform-style: preserve-3d;
+    box-shadow: 0 25px 60px -15px rgba(0,85,255,.4), 0 0 0 1px rgba(255,255,255,.12);
+  }
+  @media (max-width: 767px) { .screen-tilt { transform: none; } }
+  .ambient-underglow {
+    position: absolute; bottom: -40px; left: 10%; right: 10%; height: 70px;
+    background: radial-gradient(ellipse at center, rgba(0,180,255,.45) 0%, rgba(0,80,255,.2) 40%, transparent 75%);
+    filter: blur(28px); pointer-events: none;
+  }
+  .timeline-item-anim { opacity: 0; transform: translateY(32px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .timeline-item-anim.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* Reusable pieces */
+  .chip { display:inline-flex; align-items:center; gap:.4rem; padding:.25rem .75rem; border-radius:9999px; background:rgba(15,23,42,.8); border:1px solid rgba(51,65,85,.6); font:500 .75rem 'Space Grotesk',monospace; color:#cbd5e1; white-space:nowrap; }
+  .chip-cyan { background:rgba(8,47,73,.5); border-color:rgba(34,211,238,.35); color:#67e8f9; }
+  .sec-label { display:flex; align-items:center; gap:.5rem; font:600 .75rem 'Space Grotesk',monospace; letter-spacing:.1em; text-transform:uppercase; color:#22d3ee; margin-bottom:1rem; }
+  .badge { display:inline-flex; align-items:center; gap:.375rem; padding:.25rem .75rem; border-radius:9999px; font:600 .75rem 'Space Grotesk',monospace; letter-spacing:.02em; }
+  .badge-cyan { background:rgba(8,47,73,.6); color:#67e8f9; border:1px solid rgba(34,211,238,.4); }
+  .badge-blue { background:rgba(59,130,246,.1); color:#60a5fa; border:1px solid rgba(59,130,246,.3); }
+  .badge-done { background:rgba(2,44,34,.6); color:#34d399; border:1px solid rgba(16,185,129,.4); }
+  .badge-progress { background:rgba(8,47,73,.6); color:#22d3ee; border:1px solid rgba(34,211,238,.4); }
+  .badge-neutral { background:rgba(15,23,42,.8); color:#cbd5e1; border:1px solid rgba(71,85,105,.6); }
+  .btn-disabled { display:inline-flex; align-items:center; gap:.5rem; padding:.625rem 1rem; border-radius:9999px; font:500 .75rem 'Space Grotesk',monospace; color:#64748b; background:rgba(15,23,42,.5); border:1px solid #1e293b; cursor:not-allowed; user-select:none; }
+  .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.625rem 1.25rem; border-radius:9999px; font-weight:600; font-size:.75rem; color:#fff; background:linear-gradient(90deg,#2563eb,#06b6d4,#3b82f6); border:1px solid rgba(103,232,249,.3); box-shadow:0 0 35px -5px rgba(0,210,255,.35); white-space:nowrap; transition:filter .2s, transform .2s; }
+  .btn-primary:hover { filter:brightness(1.1); }
+  .btn-primary:active { transform:scale(.96); }
+  .filter-btn { padding:.5rem 1.25rem; border-radius:9999px; font:500 .75rem 'Space Grotesk',monospace; background:rgba(15,23,42,.8); color:#cbd5e1; border:1px solid rgba(51,65,85,.7); transition:all .3s; }
+  .filter-btn:hover { border-color:rgba(34,211,238,.5); color:#67e8f9; }
+  .filter-btn.active { background:linear-gradient(90deg,#2563eb,#06b6d4,#3b82f6); color:#fff; border-color:rgba(103,232,249,.4); box-shadow:0 0 35px -5px rgba(0,210,255,.35); font-weight:600; }
+  .nav-link { position:relative; padding:.25rem 0; color:#cbd5e1; transition:color .2s; }
+  .nav-link:hover { color:#fff; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:0; height:2px; width:0; background:#22d3ee; transition:width .3s; }
+  .nav-link:hover::after { width:100%; }
+
+  /* ---- Language + theme toggles ---- */
+  .lang-toggle { display:inline-flex; padding:2px; border-radius:9999px; background:rgba(15,23,42,.8); border:1px solid rgba(255,255,255,.1); }
+  .lang-toggle button { padding:.3rem .7rem; border-radius:9999px; font:600 .72rem 'Space Grotesk',monospace; color:#94a3b8; transition:all .2s; }
+  .lang-toggle button:hover { color:#e2e8f0; }
+  .lang-toggle button.active { background:linear-gradient(90deg,#2563eb,#06b6d4); color:#fff; box-shadow:0 0 18px -4px rgba(0,210,255,.5); }
+  .theme-btn { width:2.5rem; height:2.5rem; border-radius:9999px; border:1px solid rgba(34,211,238,.3); background:rgba(15,23,42,.8); color:#22d3ee; display:inline-flex; align-items:center; justify-content:center; transition:all .2s; }
+  .theme-btn:hover { border-color:rgba(34,211,238,.7); }
+  .theme-btn { position:relative; overflow:hidden; }
+  .theme-btn i { position:absolute; transition:transform 1s cubic-bezier(.4,0,.2,1), opacity .75s ease; }
+  .theme-btn .theme-moon { opacity:1; transform:rotate(0deg) scale(1); }
+  .theme-btn .theme-sun { opacity:0; transform:rotate(-180deg) scale(.6); }
+  html.light .theme-btn .theme-moon { opacity:0; transform:rotate(180deg) scale(.6); }
+  html.light .theme-btn .theme-sun { opacity:1; transform:rotate(0deg) scale(1); }
+  /* keep the icon's own rotation transition while the page colors fade */
+  html.theme-anim .theme-btn i { transition: transform 1s cubic-bezier(.4,0,.2,1), opacity .75s ease, color .45s ease !important; }
+  html.theme-anim body, html.theme-anim body * { transition: background-color .45s ease, color .45s ease, border-color .45s ease, box-shadow .45s ease !important; }
+  @media (prefers-reduced-motion: reduce) { .theme-btn i, html.theme-anim .theme-btn i, html.theme-anim body, html.theme-anim body * { transition:none !important; } }
+
+  /* ---- Light theme (dark is the default) ---- */
+  html.light body { background-color:#f1f5f9 !important; color:#0f172a; }
+  html.light .bg-mesh-glow { opacity:.35; }
+  html.light .grid-lines { display:none; }
+  html.light header { border-color:#e2e8f0 !important; }
+  html.light footer { border-color:#e2e8f0 !important; }
+  html.light [class*="bg-[#0"] { background-color:#f1f5f9 !important; }
+  html.light header[class*="bg-[#0"] { background-color:rgba(241,245,249,.9) !important; }
+  html.light [class*="bg-slate-"] { background-color:#e8eef5 !important; }
+  html.light .bg-black\/40 { background-color:#eef2f7 !important; }
+  html.light [class*="bg-cyan-950"] { background-color:#ecfeff !important; }
+  html.light [class*="bg-blue-950"] { background-color:#dbeafe !important; }
+  html.light [class*="border-slate-"] { border-color:#cbd5e1 !important; }
+  html.light [class*="border-white/"] { border-color:#e2e8f0 !important; }
+  html.light [class*="divide-slate"] > * + * { border-color:#e2e8f0 !important; }
+  html.light .text-white { color:#0f172a; }
+  html.light .text-slate-100, html.light .text-slate-200, html.light .text-slate-300 { color:#334155; }
+  html.light .text-slate-400 { color:#475569; }
+  html.light .text-slate-500, html.light .text-slate-600 { color:#64748b; }
+  html.light .text-cyan-300 { color:#0e7490; }
+  html.light .text-cyan-400, html.light .text-cyan-400\/90 { color:#0891b2; }
+  html.light .text-blue-300, html.light .text-blue-400 { color:#2563eb; }
+  html.light .text-emerald-300, html.light .text-emerald-400 { color:#047857; }
+  html.light .text-rose-300 { color:#be123c; }
+  html.light .glass-card { background:#ffffff; border-color:#e2e8f0; box-shadow:0 10px 25px -14px rgba(15,23,42,.25); }
+  html.light .glass-card:hover { border-color:#38bdf8; }
+  html.light .glass-card-highlight { background:linear-gradient(135deg,#e0f2fe,#f0f9ff); border-color:#7dd3fc; box-shadow:0 10px 25px -14px rgba(14,116,144,.35); }
+  html.light .glass-pill { background:#ffffff; border-color:#e2e8f0; }
+  html.light .chip { background:#ffffff; border-color:#cbd5e1; color:#334155; }
+  html.light .chip-cyan { background:#ecfeff; border-color:#67e8f9; color:#0e7490; }
+  html.light .badge-cyan, html.light .badge-progress { background:#ecfeff; color:#0e7490; border-color:#67e8f9; }
+  html.light .badge-blue { background:#eff6ff; color:#1d4ed8; border-color:#93c5fd; }
+  html.light .badge-done { background:#ecfdf5; color:#047857; border-color:#6ee7b7; }
+  html.light .badge-neutral { background:#f1f5f9; color:#334155; border-color:#cbd5e1; }
+  html.light .btn-disabled { background:#f1f5f9; color:#94a3b8; border-color:#e2e8f0; }
+  html.light .filter-btn { background:#ffffff; color:#334155; border-color:#cbd5e1; }
+  html.light .filter-btn.active { background:linear-gradient(90deg,#2563eb,#06b6d4,#3b82f6); color:#ffffff; border-color:rgba(103,232,249,.4); }
+  html.light .nav-link { color:#334155; }
+  html.light .nav-link:hover { color:#0f172a; }
+  html.light .lang-toggle { background:#ffffff; border-color:#cbd5e1; }
+  html.light .lang-toggle button { color:#475569; }
+  html.light .lang-toggle button.active { color:#ffffff; }
+  html.light .theme-btn { background:#ffffff; border-color:#cbd5e1; color:#0e7490; }
+  html.light [class*="from-blue-600"].text-white, html.light .bg-blue-600.text-white, html.light [class*="to-blue-600"] .text-white { color:#ffffff; }
+  html.light .screen-tilt { box-shadow:0 25px 60px -20px rgba(15,23,42,.35), 0 0 0 1px rgba(15,23,42,.08); }
+</style>
+<noscript><style>.timeline-item-anim{opacity:1;transform:none}</style></noscript>
+</head>
+
+<body class="bg-[#040711] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black relative font-sans">
+<div aria-hidden="true" class="fixed inset-0 bg-mesh-glow pointer-events-none z-0"></div>
+<div aria-hidden="true" class="fixed inset-0 grid-lines opacity-40 pointer-events-none z-0"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#040711]/80 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a class="flex items-center gap-3 group" href="#home" aria-label="Back to top">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-[1.5px] transition-transform duration-300 group-hover:scale-105">
+        <div class="w-full h-full bg-[#070d1e] rounded-[10px] flex items-center justify-center">
+          <span class="font-mono text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 font-bold tracking-wider text-base">TMS</span>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-bold text-sm tracking-wide text-white group-hover:text-cyan-300 transition-colors">Mohamed Saber TATA</span>
+        <span class="text-[11px] text-cyan-400/90 font-mono tracking-wider font-semibold">DATA SCIENCE ENGINEER</span>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Primary">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <div class="lang-toggle hidden sm:inline-flex" role="group" aria-label="Language"><button type="button" data-lang-btn="en" aria-pressed="true">EN</button><button type="button" data-lang-btn="fr" aria-pressed="false">FR</button></div>
+      <button type="button" data-theme-btn class="theme-btn hidden sm:inline-flex" aria-label="Toggle light or dark theme"><i class="fa-solid fa-moon theme-moon"></i><i class="fa-solid fa-sun theme-sun"></i></button>
+      <a data-link="cv" class="hidden sm:inline-flex items-center gap-2.5 whitespace-nowrap px-5 py-2.5 rounded-full font-medium text-sm text-white bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 shadow-glow-blue hover:shadow-glow-cyan hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 border border-cyan-300/30" href="#">
+        <span>Download CV</span><i class="fa-solid fa-cloud-arrow-down text-xs"></i>
+      </a>
+      <button id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" class="md:hidden w-10 h-10 rounded-full border border-cyan-500/30 bg-slate-900/80 text-cyan-400 flex items-center justify-center">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#040711]/95 px-6 py-4">
+    <nav class="flex flex-col gap-4 text-sm font-medium" aria-label="Mobile">
+      <a class="text-slate-300 hover:text-white" href="#about">About</a>
+      <a class="text-slate-300 hover:text-white" href="#skills">Skills</a>
+      <a class="text-slate-300 hover:text-white" href="#experience">Experience</a>
+      <a class="text-slate-300 hover:text-white" href="#projects">Projects</a>
+      <a class="text-slate-300 hover:text-white" href="#contact">Contact</a>
+      <div class="flex items-center gap-3 pt-2 sm:hidden">
+        <div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-lang-btn="en" aria-pressed="true">EN</button><button type="button" data-lang-btn="fr" aria-pressed="false">FR</button></div>
+        <button type="button" data-theme-btn class="theme-btn" aria-label="Toggle light or dark theme"><i class="fa-solid fa-moon theme-moon"></i><i class="fa-solid fa-sun theme-sun"></i></button>
+      </div>
+      <a data-link="cv" class="text-cyan-300 font-semibold" href="#"><i class="fa-solid fa-cloud-arrow-down mr-2 text-xs"></i>Download CV</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HOME VIEW ============ -->
+<div id="home-view">
+<main class="relative z-10">
+
+  <!-- HERO -->
+  <section class="pt-12 pb-16 md:pt-16 md:pb-24 max-w-7xl mx-auto px-6 flex flex-col items-center text-center" id="home">
+    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/80 border border-cyan-500/30 text-cyan-300 text-xs md:text-sm font-medium tracking-wide mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(6,182,212,0.2)]">
+      <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+      <span>Portfolio / Machine Learning &amp; Data Science</span>
+    </div>
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+      Mohamed Saber TATA
+      <span class="block mt-2 font-mono text-3xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-indigo-300">Data Science Engineer</span>
+    </h1>
+    <p class="max-w-2xl text-slate-300 text-base md:text-lg font-light leading-relaxed mb-10">
+      Transforming complex data into predictive intelligence, machine learning systems, and high-impact digital solutions.
+    </p>
+    <div class="relative w-48 h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent mb-12">
+      <span class="absolute -top-[3px] left-1/2 -translate-x-1/2 w-8 h-2 rounded-full bg-cyan-400/80 blur-sm"></span>
+    </div>
+
+    <!-- Illustrative ML workflow mockup (no real metrics) -->
+    <div class="w-full max-w-4xl relative perspective-stage my-4" aria-label="Illustrative machine learning workflow">
+      <div class="ambient-underglow"></div>
+      <div class="screen-tilt rounded-2xl bg-[#091122]/90 border border-slate-700/60 p-4 md:p-6 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+            <span class="text-xs font-mono text-slate-400 ml-2">ml-workflow // overview</span>
+          </div>
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">ILLUSTRATIVE</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 text-left">
+          <div class="md:col-span-5 flex flex-col justify-between bg-slate-900/60 rounded-xl p-4 border border-white/5">
+            <div>
+              <span class="text-[11px] font-mono text-cyan-400 uppercase tracking-widest font-semibold">Machine Learning Workflow</span>
+              <h3 class="text-lg md:text-xl font-bold text-white mt-1">From raw data to working models</h3>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">Data cleaning, feature engineering, model training and evaluation across NLP, computer vision and time-series projects.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800 text-xs font-mono">
+              <div class="bg-black/40 rounded-lg p-2.5 border border-cyan-500/20 text-cyan-300"><i class="fa-solid fa-database mr-1.5"></i>Data</div>
+              <div class="bg-black/40 rounded-lg p-2.5 border border-blue-500/20 text-blue-300"><i class="fa-solid fa-sliders mr-1.5"></i>Features</div>
+              <div class="bg-black/40 rounded-lg p-2.5 border border-blue-500/20 text-blue-300"><i class="fa-solid fa-brain mr-1.5"></i>Model</div>
+              <div class="bg-black/40 rounded-lg p-2.5 border border-cyan-500/20 text-cyan-300"><i class="fa-solid fa-chart-line mr-1.5"></i>Evaluate</div>
+            </div>
+            <div class="flex items-center gap-2 mt-4">
+              <a href="#projects" class="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium transition-colors flex items-center gap-1.5"><i class="fa-solid fa-play text-[10px]"></i> View Projects</a>
+              <a href="#contact" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors border border-slate-700">Contact</a>
+            </div>
+          </div>
+          <div class="md:col-span-7 bg-[#060c18] rounded-xl p-4 border border-blue-900/30 flex flex-col justify-between relative overflow-hidden">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs text-slate-400 font-mono">Training progress (illustrative)</span>
+              <span class="px-2 py-0.5 rounded bg-blue-500/20 text-cyan-300 text-[10px] font-mono border border-cyan-500/30">no real data</span>
+            </div>
+            <div class="h-32 sm:h-40 w-full relative flex items-end pt-4 pb-1">
+              <div id="hero-bars" class="w-full flex items-end justify-between gap-1.5 sm:gap-2 px-1 h-full z-10"></div>
+              <svg class="absolute inset-0 w-full h-full pointer-events-none z-20" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
+                <path d="M 0,80 Q 20,65 40,55 T 70,30 T 100,8" fill="none" stroke="#38bdf8" stroke-linecap="round" stroke-width="2.5" style="filter:drop-shadow(0 0 8px #00e5ff)"></path>
+                <circle cx="100" cy="8" fill="#ffffff" r="3"></circle>
+              </svg>
+            </div>
+            <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-microchip text-cyan-400"></i> Python</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-network-wired text-blue-400"></i> TensorFlow</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-server text-cyan-300"></i> PyTorch</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-xs text-slate-400 font-mono">
+          <span class="text-slate-400 font-medium">Tools I work with</span>
+          <div class="flex flex-wrap items-center gap-x-5 gap-y-1 opacity-80 mt-2 sm:mt-0">
+            <span>Python</span><span>TensorFlow</span><span>PyTorch</span><span>scikit-learn</span><span>React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-12 max-w-4xl mx-auto px-6 text-center" id="about">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase tracking-widest mb-3">
+      <i class="fa-solid fa-user text-cyan-400 text-xs"></i><span>About</span>
+    </div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Data science, built end to end</h2>
+    <p class="mt-4 text-slate-300 font-light leading-relaxed">
+      I'm a final-year (5th-year) Data Science engineering student at Université Badji Mokhtar-Annaba, based in Annaba, Algeria.
+      I work across machine learning, NLP, computer vision and web development, and I like taking a project from raw data
+      to something people can actually use, with Python, TensorFlow, PyTorch and React.
+    </p>
+  </section>
+
+  <!-- SKILLS / EXPERTISE -->
+  <section class="py-8 max-w-7xl mx-auto px-6" id="skills" aria-label="Expertise">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="glass-card rounded-2xl p-6 group hover:-translate-y-1.5">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i class="fa-solid fa-brain text-xl text-cyan-400"></i></div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">Machine Learning &amp; AI</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">Supervised and unsupervised learning, NLP, reinforcement learning, and decision-making under uncertainty.</p>
+      </div>
+      <div class="glass-card-highlight rounded-2xl p-6 group hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden">
+        <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl pointer-events-none"></div>
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(0,210,255,0.4)] group-hover:scale-110 transition-transform"><i class="fa-solid fa-chart-line text-xl text-white"></i></div>
+        <h3 class="text-lg font-bold text-cyan-300 mb-2">Data Analysis</h3>
+        <p class="text-xs text-slate-200 leading-relaxed">Data cleaning, preprocessing and feature engineering for tabular, text and image data.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 group hover:-translate-y-1.5">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i class="fa-solid fa-eye text-xl text-cyan-400"></i></div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">Deep Learning &amp; Vision</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">Image classification and facial expression recognition with TensorFlow, PyTorch and computer vision tools.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6 group hover:-translate-y-1.5">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"><i class="fa-solid fa-chart-pie text-xl text-cyan-400"></i></div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">Predictive Modeling</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">Time-series forecasting (SARIMAX), classification and optimization models.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="py-10 max-w-5xl mx-auto px-6" aria-label="Highlights">
+    <div class="glass-pill rounded-3xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+      <div class="grid grid-cols-3 divide-x divide-slate-800 w-full md:w-auto text-center md:text-left">
+        <div class="px-3 sm:px-6">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono tracking-tight">4</div>
+          <div class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-medium mt-0.5">Projects Built</div>
+        </div>
+        <div class="px-3 sm:px-6">
+          <div class="text-2xl sm:text-3xl font-extrabold text-cyan-300 font-mono tracking-tight">2027</div>
+          <div class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-medium mt-0.5">Degree Expected</div>
+        </div>
+        <div class="px-3 sm:px-6">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono tracking-tight">Final Year</div>
+          <div class="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-medium mt-0.5">Data Science Eng.</div>
+        </div>
+      </div>
+      <a class="btn-primary !px-8 !py-3.5 !text-sm w-full md:w-auto" href="#projects"><span>View My Work</span><i class="fa-solid fa-arrow-right text-xs"></i></a>
+    </div>
+  </section>
+
+  <!-- TECH ECOSYSTEM -->
+  <section class="py-8 max-w-4xl mx-auto px-6 text-center" aria-label="Technology">
+    <div class="flex items-center justify-center gap-4 mb-4">
+      <span class="w-12 h-[1px] bg-gradient-to-r from-transparent to-cyan-500"></span>
+      <span class="text-xs uppercase font-mono text-cyan-400 tracking-widest font-semibold">Core Technology Ecosystem</span>
+      <span class="w-12 h-[1px] bg-gradient-to-l from-transparent to-cyan-500"></span>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono text-slate-300">
+      <span class="chip !text-sm !px-3.5 !py-1.5">Python</span>
+      <span class="chip !text-sm !px-3.5 !py-1.5">TensorFlow</span>
+      <span class="chip !text-sm !px-3.5 !py-1.5">PyTorch</span>
+      <span class="chip !text-sm !px-3.5 !py-1.5">scikit-learn</span>
+      <span class="chip !text-sm !px-3.5 !py-1.5">pandas</span>
+      <span class="chip !text-sm !px-3.5 !py-1.5">JavaScript</span>
+      <span class="chip !text-sm !px-3.5 !py-1.5">React</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="py-20 max-w-5xl mx-auto px-6" id="experience">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase tracking-widest mb-3">
+        <i class="fa-solid fa-graduation-cap text-cyan-400 text-xs"></i><span>Career journey &amp; academic background</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">Experience &amp; Education</h2>
+      <p class="max-w-xl mx-auto mt-3 text-sm md:text-base text-slate-400 font-light">A timeline of academic specialization in Data Science and hands-on professional immersion.</p>
+    </div>
+    <div class="relative pl-6 md:pl-10">
+      <div aria-hidden="true" class="absolute left-2 md:left-4 top-2 bottom-6 w-[2px] bg-gradient-to-b from-cyan-400 via-blue-500 to-cyan-500/10 shadow-[0_0_12px_rgba(0,210,255,0.7)]"></div>
+      <div class="space-y-12">
+
+        <div class="relative timeline-item-anim group">
+          <div class="absolute -left-[27px] md:-left-[35px] top-6 flex items-center justify-center w-6 h-6 rounded-full bg-[#040711] border-2 border-cyan-400 shadow-[0_0_16px_rgba(0,210,255,0.85)] z-20"><span class="w-2 h-2 rounded-full bg-cyan-300"></span></div>
+          <div class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden group-hover:-translate-y-1">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <span class="badge badge-cyan"><i class="fa-solid fa-user-graduate text-[11px]"></i> Education</span>
+              <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono text-cyan-400/90 font-medium"><i class="fa-regular fa-calendar text-xs"></i> 2022 – 2027</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Engineering Student, Computer Science (Data Science)</h3>
+            <div class="text-sm font-mono text-slate-300 mt-1 flex items-center gap-2"><i class="fa-solid fa-building-columns text-cyan-400 text-xs"></i><span>Université Badji Mokhtar-Annaba, Faculty of Technology</span></div>
+            <div class="mt-5 pt-4 border-t border-white/5 flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span>
+              <span><strong class="text-white font-medium">Advanced modules:</strong> Generative AI, Computer Vision, NLP, Reinforcement Learning, Uncertainty Management.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative timeline-item-anim group">
+          <div class="absolute -left-[27px] md:-left-[35px] top-6 flex items-center justify-center w-6 h-6 rounded-full bg-[#040711] border-2 border-cyan-400 shadow-[0_0_16px_rgba(0,210,255,0.85)] z-20"><span class="w-2 h-2 rounded-full bg-cyan-400"></span></div>
+          <div class="glass-card rounded-2xl p-6 sm:p-8 relative overflow-hidden group-hover:-translate-y-1">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <span class="badge badge-blue"><i class="fa-solid fa-briefcase text-[11px]"></i> Internship</span>
+              <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono text-cyan-400/90 font-medium"><i class="fa-regular fa-calendar text-xs"></i> Mar – Apr 2026 · 7 working days</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">IT &amp; Information Systems Intern</h3>
+            <div class="text-sm font-mono text-slate-300 mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-anchor text-cyan-400 text-xs"></i> Port d'Annaba</span>
+              <span class="text-slate-600">•</span>
+              <span class="flex items-center gap-1 text-slate-400"><i class="fa-solid fa-location-dot text-xs"></i> Annaba, Algeria</span>
+            </div>
+            <ul class="mt-5 pt-4 border-t border-white/5 space-y-2.5 text-sm text-slate-300 leading-relaxed">
+              <li class="flex items-start gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span><span>Analyzed the port's information system and how it supports operations.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span><span>Mapped the main business processes: vessel management, cargo and container handling, and billing.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span><span>Studied the network architecture and infrastructure of the IT environment.</span></li>
+              <li class="flex items-start gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span><span>Wrote a full internship report and a presentation documenting the findings.</span></li>
+            </ul>
+            <div class="mt-6 pt-4 border-t border-white/5 flex flex-wrap items-center gap-2">
+              <span class="chip">Information Systems</span><span class="chip">Business Processes</span><span class="chip">Network Architecture</span><span class="chip">Technical Reporting</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="py-20 max-w-7xl mx-auto px-6" id="projects">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase tracking-widest mb-3">
+        <i class="fa-solid fa-layer-group text-cyan-400 text-xs"></i><span>Portfolio / Showcase</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">Featured Engineering Projects</h2>
+      <p class="max-w-2xl mx-auto mt-3 text-sm md:text-base text-slate-400 font-light">NLP classification, cloud cost optimization and computer vision projects.</p>
+    </div>
+
+    <div class="flex items-center justify-center gap-2 sm:gap-3 mb-12 flex-wrap" role="group" aria-label="Filter projects">
+      <button type="button" class="filter-btn active" data-filter="all">All</button>
+      <button type="button" class="filter-btn" data-filter="nlp">NLP</button>
+      <button type="button" class="filter-btn" data-filter="data">Data</button>
+      <button type="button" class="filter-btn" data-filter="vision">Vision</button>
+    </div>
+
+    <div class="space-y-8">
+
+      <!-- Project: Algérie Télécom -->
+      <div class="project-card glass-card rounded-2xl p-6 sm:p-8 group hover:-translate-y-1.5 relative overflow-hidden" data-category="nlp">
+        <div class="absolute -top-32 -right-32 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative">
+          <div class="lg:col-span-7 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-wrap items-center gap-2.5 mb-3">
+                <span class="badge badge-cyan"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>NLP</span>
+                <span class="badge badge-blue"><i class="fa-solid fa-briefcase text-[10px]"></i> Personal Project</span>
+                <span class="badge badge-done"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Done</span>
+                <span class="chip ml-auto hidden sm:inline-flex !text-[11px]"><i class="fa-solid fa-chart-line text-[10px] text-cyan-400"></i> Metric: Macro F1-Score</span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight group-hover:text-cyan-300 transition-colors">Customer Complaint Classification — Algérie Télécom</h3>
+              <div class="text-xs font-mono text-cyan-400/90 mt-1 font-medium">Built from the Hackathon FORSA tic challenge brief</div>
+              <p class="text-sm text-slate-300 leading-relaxed mt-3 font-light">AI system that classifies customer complaints written in Algerian dialect (Darija) from two sources, social media comments and call-center tickets, to detect topics and help support teams prioritize critical cases.</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                <div class="bg-black/40 rounded-xl p-3 border border-cyan-500/20">
+                  <div class="text-[11px] font-mono text-cyan-300 font-semibold">Social Media Comments</div>
+                  <div class="text-xs font-mono text-slate-300 mt-1">~30,000 comments · 9 classes</div>
+                </div>
+                <div class="bg-black/40 rounded-xl p-3 border border-blue-500/20">
+                  <div class="text-[11px] font-mono text-blue-400 font-semibold">Call-Center Tickets</div>
+                  <div class="text-xs font-mono text-slate-300 mt-1">structured data · 6 classes</div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-5 border-t border-white/5 space-y-4">
+              <div class="flex flex-wrap items-center gap-2"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">scikit-learn</span></div>
+              <div class="flex flex-wrap items-center gap-3">
+                <a class="btn-primary" href="#/project/algerie-telecom"><span>View Project Details</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                <span class="btn-disabled"><i class="fa-brands fa-github"></i> View on GitHub <span class="text-[10px] border-l border-slate-800 pl-2 ml-1">Code coming soon</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-[#050a16] rounded-xl border border-cyan-500/20 p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                <span class="text-[11px] font-mono text-slate-400 ml-1">classification-preview</span>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">Darija NLP</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2 px-1">
+              <span>Class confusion matrix (illustrative)</span><span class="text-cyan-400 font-semibold">9 × 9</span>
+            </div>
+            <div class="p-3 rounded-lg bg-slate-950/70 border border-slate-800/70">
+              <div id="heatmap" class="grid grid-cols-9 gap-1 aspect-square w-full" aria-hidden="true"></div>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-language text-cyan-400"></i> Darija &amp; code-switching</span>
+              <span class="text-slate-500">no real scores shown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project: Cloud Cost Optimizer -->
+      <div class="project-card glass-card rounded-2xl p-6 sm:p-8 group hover:-translate-y-1.5 relative overflow-hidden" data-category="data">
+        <div class="absolute -top-32 -right-32 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch relative">
+          <div class="lg:col-span-7 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-wrap items-center gap-2.5 mb-4">
+                <span class="badge badge-blue"><i class="fa-solid fa-database text-[10px]"></i> Data</span>
+                <span class="badge badge-blue"><i class="fa-solid fa-briefcase text-[10px]"></i> Personal Project</span>
+                <span class="badge badge-progress"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>In progress</span>
+                <span class="text-xs font-mono text-slate-500 ml-auto hidden sm:inline">AWS Compute</span>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight group-hover:text-cyan-300 transition-colors">Dynamic Energy &amp; Cloud Cost Optimizer</h3>
+              <p class="text-sm text-slate-300 leading-relaxed mt-3 font-light">Time-series forecasting engine (SARIMAX) that predicts cluster compute load and optimizes AWS Spot vs On-Demand allocation to minimize cloud costs, with a 24-hour provisioning schedule and an interactive dashboard.</p>
+              <div class="mt-6 pt-5 border-t border-white/5 space-y-2.5">
+                <div class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">Key Highlights</div>
+                <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                  <li class="flex items-start gap-2.5"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span><span>Forecasts cluster-wide load, not a single instance</span></li>
+                  <li class="flex items-start gap-2.5"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span><span>Uses Spot price trends, user load and time features as exogenous inputs</span></li>
+                  <li class="flex items-start gap-2.5"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0"></span><span>Decision engine outputs a 24h provisioning plan</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-6 pt-5 border-t border-white/5 space-y-4">
+              <div class="flex flex-wrap items-center gap-2"><span class="chip">Python</span><span class="chip">SARIMAX</span><span class="chip">pandas</span><span class="chip">boto3</span><span class="chip">AWS CloudWatch</span><span class="chip">Streamlit</span></div>
+              <div class="flex flex-wrap items-center gap-3">
+                <a class="btn-primary" href="#/project/cloud-optimizer"><span>View Project Details</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                <span class="btn-disabled"><i class="fa-brands fa-github"></i> View on GitHub <span class="text-[10px] border-l border-slate-800 pl-2 ml-1">Code coming soon</span></span>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-[#050a16] rounded-xl border border-cyan-500/20 p-5 flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                <span class="text-[11px] font-mono text-slate-400 ml-1">forecast-preview</span>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">Illustrative</span>
+            </div>
+            <div class="relative h-40 w-full rounded-lg bg-slate-950/70 p-2 border border-slate-800/70 flex flex-col justify-between overflow-hidden">
+              <div class="flex justify-between items-center text-[10px] font-mono text-slate-400 px-1"><span>Cluster compute load · 24h forecast</span></div>
+              <svg class="w-full h-24" preserveAspectRatio="none" viewBox="0 0 300 100" aria-hidden="true">
+                <polygon fill="rgba(0,210,255,0.08)" points="150,50 200,32 250,22 300,15 300,45 250,55 200,65 150,70"></polygon>
+                <polyline fill="none" points="0,78 30,70 60,65 90,72 120,55 150,50" stroke="#64748b" stroke-dasharray="2 2" stroke-width="1.8"></polyline>
+                <polyline fill="none" points="150,50 180,40 210,30 240,25 270,18 300,20" stroke="#00d2ff" stroke-width="2.5" style="filter:drop-shadow(0 0 6px #00d2ff)"></polyline>
+                <circle cx="150" cy="50" fill="#ffffff" r="3" stroke="#00d2ff" stroke-width="2"></circle>
+                <circle cx="300" cy="20" fill="#ffffff" r="2.5"></circle>
+              </svg>
+              <div class="flex justify-between text-[9px] font-mono text-slate-500 px-1"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mt-3 text-[11px] font-mono">
+              <div class="rounded-lg bg-black/40 border border-slate-800 p-2 text-cyan-300"><i class="fa-solid fa-bolt mr-1.5"></i>Spot instances</div>
+              <div class="rounded-lg bg-black/40 border border-slate-800 p-2 text-slate-300"><i class="fa-solid fa-shield-halved mr-1.5"></i>On-Demand buffer</div>
+            </div>
+            <div class="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-cloud text-cyan-400"></i> AWS Auto Scaling Group</span>
+              <span class="text-slate-500">no real data shown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-column: Vision projects -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="project-card glass-card rounded-2xl p-6 sm:p-7 group hover:-translate-y-1.5 flex flex-col justify-between relative overflow-hidden" data-category="vision">
+          <div class="absolute -top-24 -right-24 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <span class="badge badge-blue"><i class="fa-solid fa-eye text-[10px]"></i> Vision</span>
+              <span class="badge badge-blue"><i class="fa-solid fa-users text-[10px]"></i> Team Project</span>
+              <span class="badge badge-done"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Done</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">Fruit Quality Detection</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5 font-light">Image classification system that grades fruit as Good or Bad (6 fruits × 2 qualities) using transfer learning with MobileNetV2, with a FastAPI backend and a Next.js web interface.</p>
+            <div class="mt-5 p-3 rounded-xl bg-[#060b18] border border-slate-800">
+              <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2"><span>Classification preview</span><span class="text-slate-500">illustrative</span></div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="h-24 rounded-lg border-2 border-emerald-400/80 bg-emerald-500/10 flex flex-col items-center justify-center gap-1 text-emerald-300"><i class="fa-solid fa-apple-whole text-2xl"></i><span class="text-[10px] font-mono font-bold">GOOD</span></div>
+                <div class="h-24 rounded-lg border-2 border-rose-400/80 bg-rose-500/10 flex flex-col items-center justify-center gap-1 text-rose-300"><i class="fa-solid fa-apple-whole text-2xl"></i><span class="text-[10px] font-mono font-bold">BAD</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 space-y-4">
+            <div class="flex flex-wrap items-center gap-2"><span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">MobileNetV2</span><span class="chip">FastAPI</span><span class="chip">Next.js</span></div>
+            <a class="btn-primary" href="#/project/freshclass"><span>View Project Details</span><i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card glass-card rounded-2xl p-6 sm:p-7 group hover:-translate-y-1.5 flex flex-col justify-between relative overflow-hidden" data-category="vision">
+          <div class="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <span class="badge badge-blue"><i class="fa-solid fa-eye text-[10px]"></i> Vision</span>
+              <span class="badge badge-done"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Done</span>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-cyan-300 transition-colors">Facial Emotion Detection</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5 font-light">Facial expression recognition that detects emotions such as happy, sad and angry.</p>
+            <div class="mt-5 p-3 rounded-xl bg-[#060b18] border border-slate-800">
+              <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2"><span>Emotion classes</span><span class="text-slate-500">illustrative</span></div>
+              <div class="grid grid-cols-4 gap-2 text-center">
+                <div class="rounded-lg bg-black/40 border border-cyan-500/30 p-2 text-cyan-300"><i class="fa-solid fa-face-smile text-xl"></i><div class="text-[10px] font-mono mt-1">Happy</div></div>
+                <div class="rounded-lg bg-black/40 border border-blue-500/30 p-2 text-blue-300"><i class="fa-solid fa-face-frown text-xl"></i><div class="text-[10px] font-mono mt-1">Sad</div></div>
+                <div class="rounded-lg bg-black/40 border border-rose-500/30 p-2 text-rose-300"><i class="fa-solid fa-face-angry text-xl"></i><div class="text-[10px] font-mono mt-1">Angry</div></div>
+                <div class="rounded-lg bg-black/40 border border-slate-700 p-2 text-slate-400"><i class="fa-solid fa-ellipsis text-xl"></i><div class="text-[10px] font-mono mt-1">More</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/5 space-y-4">
+            <div class="flex flex-wrap items-center gap-2"><span class="chip">Python</span><span class="chip">Computer Vision</span><span class="chip">Deep Learning</span></div>
+            <span class="btn-disabled">Details coming soon</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="py-16 max-w-4xl mx-auto px-6 text-center" id="contact">
+    <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-cyan-500/20 shadow-2xl">
+      <div class="absolute -top-20 -left-20 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -right-20 w-48 h-48 bg-cyan-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <h2 class="relative text-2xl sm:text-3xl font-extrabold text-white mb-3">Interested in working together?</h2>
+      <p class="relative text-sm sm:text-base text-slate-300 max-w-lg mx-auto mb-8 font-light">Open to internships, projects and collaborations in data science, machine learning and AI. Let's connect.</p>
+      <div class="link-group relative flex flex-wrap items-center justify-center gap-4">
+        <a data-link="email" class="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium text-sm shadow-glow-blue hover:shadow-glow-cyan transition-all duration-300 flex items-center gap-2" href="#"><i class="fa-solid fa-envelope"></i><span>Get in Touch</span></a>
+        <a data-link="linkedin" class="px-6 py-3 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-medium text-sm border border-slate-700 transition-colors flex items-center gap-2" href="#"><i class="fa-brands fa-linkedin-in text-cyan-400"></i><span>LinkedIn Profile</span></a>
+        <a data-link="github" class="px-6 py-3 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-medium text-sm border border-slate-700 transition-colors flex items-center gap-2" href="#"><i class="fa-brands fa-github text-cyan-400"></i><span>GitHub</span></a>
+        <p class="link-fallback hidden text-sm text-slate-400 font-mono">Contact links coming soon.</p>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- ============ PROJECT DETAIL VIEW ============ -->
+<div id="detail-view" class="hidden relative z-10">
+<main>
+
+  <!-- Detail: Algérie Télécom -->
+  <article id="detail-algerie-telecom" class="detail hidden" data-title="Customer Complaint Classification — Algérie Télécom">
+    <div class="max-w-5xl mx-auto px-6 pt-10 pb-12">
+      <div class="flex items-center justify-between mb-10">
+        <a href="#projects" class="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-cyan-300 transition-colors"><i class="fa-solid fa-arrow-left text-xs"></i> Back to projects</a>
+        <span class="chip chip-cyan !text-[11px] uppercase tracking-widest">NLP / Customer Intelligence</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2.5 mb-5">
+        <span class="badge badge-cyan">NLP</span>
+        <span class="badge badge-blue">Personal Project</span>
+        <span class="badge badge-neutral">FORSA tic Hackathon Brief</span>
+        <span class="badge badge-done"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Done</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">Customer Complaint Classification <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">Algérie Télécom</span></h1>
+      <p class="mt-4 text-lg text-slate-300 font-light max-w-3xl">Built from the Hackathon FORSA tic challenge brief: dialectal NLP and ticket classification for telecom customer support.</p>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <span class="btn-disabled"><i class="fa-brands fa-github"></i> View on GitHub <span class="text-[10px] border-l border-slate-800 pl-2 ml-1">Code coming soon</span></span>
+        <span class="chip chip-cyan">Target: Macro F1-Score</span>
+        <span class="chip chip-cyan">Language: Algerian Darija &amp; code-switching</span>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6 sm:p-8 mt-12">
+        <div class="sec-label"><i class="fa-solid fa-bolt"></i> Operational context &amp; purpose</div>
+        <h2 class="text-2xl font-bold text-white mb-3">Large-scale telecom support, too much to read by hand</h2>
+        <p class="text-slate-300 font-light leading-relaxed">Algérie Télécom receives thousands of customer messages every day through social media and its call center. The volume and the mix of dialects and languages make manual triage impossible. This project builds an automated machine learning and NLP approach to classify these complaints by nature, so support teams can route and prioritize them faster.</p>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-layer-group"></i> Challenge breakdown</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="glass-card rounded-2xl p-6">
+          <span class="chip chip-cyan mb-3">Unstructured NLP · 9 classes</span>
+          <h3 class="text-xl font-bold text-white mb-3">Challenge 1 — Social Media Comments</h3>
+          <p class="text-sm text-slate-300 leading-relaxed"><strong class="text-white font-medium">Dataset scope:</strong> about 30,000 comments from social media (Facebook, Twitter…).</p>
+          <p class="text-sm text-slate-300 leading-relaxed mt-2"><strong class="text-white font-medium">Language:</strong> informal text, phonetic spelling, emojis and noisy dialectal slang.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6">
+          <span class="chip chip-cyan mb-3">Structured multi-attribute · 6 classes</span>
+          <h3 class="text-xl font-bold text-white mb-3">Challenge 2 — Call-Center Tickets</h3>
+          <p class="text-sm text-slate-300 leading-relaxed"><strong class="text-white font-medium">Dataset scope:</strong> complaint tickets recorded by the call-center management system.</p>
+          <p class="text-sm text-slate-300 leading-relaxed mt-2"><strong class="text-white font-medium">Key attributes:</strong> service type, technology (ADSL / FTTH / 4G), processing department, location (Wilaya / ACTEL), technical vs commercial type.</p>
+        </div>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-diagram-project"></i> Engineering approach</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 01</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-broom"></i></div><h3 class="font-bold text-white mb-1.5">Data Cleaning &amp; Preprocessing</h3><p class="text-xs text-slate-300 leading-relaxed">Clean and normalize the text: Darija, Arabic script, French-Arabic mixes, noise and punctuation.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 02</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-sliders"></i></div><h3 class="font-bold text-white mb-1.5">Feature Engineering</h3><p class="text-xs text-slate-300 leading-relaxed">Turn text and structured ticket fields into inputs the models can learn from.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 03</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-brain"></i></div><h3 class="font-bold text-white mb-1.5">Model Training &amp; Validation</h3><p class="text-xs text-slate-300 leading-relaxed">Train and compare classification models for each of the two challenges.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 04</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-circle-check"></i></div><h3 class="font-bold text-white mb-1.5">Inference &amp; Evaluation</h3><p class="text-xs text-slate-300 leading-relaxed">Predict the class of new complaints and evaluate with the Macro F1-Score.</p></div>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-shield-halved"></i> Challenges &amp; objectives</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass-card rounded-2xl p-5"><h3 class="font-semibold text-cyan-300 mb-1.5"><i class="fa-solid fa-language mr-2"></i>Algerian dialect (Darija)</h3><p class="text-xs text-slate-300 leading-relaxed">Non-standard spelling, written in Arabic script and in Latin letters (Arabizi).</p></div>
+        <div class="glass-card rounded-2xl p-5"><h3 class="font-semibold text-cyan-300 mb-1.5"><i class="fa-solid fa-shuffle mr-2"></i>Arabic-French code-switching</h3><p class="text-xs text-slate-300 leading-relaxed">Customers mix Arabic and French in the same sentence, including technical terms.</p></div>
+        <div class="glass-card rounded-2xl p-5"><h3 class="font-semibold text-cyan-300 mb-1.5"><i class="fa-solid fa-comments mr-2"></i>Noisy social text</h3><p class="text-xs text-slate-300 leading-relaxed">Short, informal comments with emojis, slang and irregular punctuation.</p></div>
+        <div class="glass-card rounded-2xl p-5"><h3 class="font-semibold text-cyan-300 mb-1.5"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Prioritizing critical cases</h3><p class="text-xs text-slate-300 leading-relaxed">The challenge aims to help teams surface urgent complaints first.</p></div>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-gear"></i> Tools &amp; frameworks</div>
+      <div class="flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">scikit-learn</span></div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-chart-line"></i> Evaluation</div>
+      <div class="glass-card rounded-2xl p-6"><span class="chip chip-cyan mb-3">Results coming soon</span><p class="text-slate-300 font-light">Results will be added here soon.</p></div>
+    </div>
+  </article>
+
+  <!-- Detail: Cloud Cost Optimizer -->
+  <article id="detail-cloud-optimizer" class="detail hidden" data-title="Dynamic Energy & Cloud Cost Optimizer">
+    <div class="max-w-5xl mx-auto px-6 pt-10 pb-12">
+      <div class="flex items-center justify-between mb-10">
+        <a href="#projects" class="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-cyan-300 transition-colors"><i class="fa-solid fa-arrow-left text-xs"></i> Back to projects</a>
+        <span class="chip chip-cyan !text-[11px] uppercase tracking-widest">Data / Cloud FinOps</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2.5 mb-5">
+        <span class="badge badge-cyan">Data</span>
+        <span class="badge badge-blue">Personal Project</span>
+        <span class="badge badge-progress"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>In progress</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">Dynamic Energy &amp; Cloud Cost <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">Optimizer</span></h1>
+      <p class="mt-4 text-lg text-slate-300 font-light max-w-3xl">SARIMAX-based forecasting to optimize AWS Spot vs On-Demand allocation.</p>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <span class="btn-disabled"><i class="fa-brands fa-github"></i> View on GitHub <span class="text-[10px] border-l border-slate-800 pl-2 ml-1">Code coming soon</span></span>
+        <span class="chip chip-cyan">Method: SARIMAX time-series</span>
+        <span class="chip chip-cyan">Scope: AWS Auto Scaling Group (cluster level)</span>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6 sm:p-8 mt-12">
+        <div class="sec-label"><i class="fa-solid fa-bolt"></i> Operational context &amp; purpose</div>
+        <h2 class="text-2xl font-bold text-white mb-3">Cutting cloud compute cost with forecasting</h2>
+        <p class="text-slate-300 font-light leading-relaxed">Cloud compute cost depends on how well capacity is matched to demand. This project forecasts cluster-wide compute load and uses it to decide, hour by hour, how much capacity to run on cheaper but interruptible Spot instances versus reliable On-Demand instances, in order to minimize total cost.</p>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-lightbulb"></i> Key design decisions</div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="glass-card rounded-2xl p-6"><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-cubes"></i></div><h3 class="font-bold text-white mb-1.5">Cluster-level view</h3><p class="text-xs text-slate-300 leading-relaxed">Metrics are aggregated across a whole AWS Auto Scaling Group instead of a single EC2 instance.</p></div>
+        <div class="glass-card rounded-2xl p-6"><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-chart-column"></i></div><h3 class="font-bold text-white mb-1.5">Exogenous features</h3><p class="text-xs text-slate-300 leading-relaxed">The forecasting model uses Spot price trends, active user load, hour of day and day of week.</p></div>
+        <div class="glass-card rounded-2xl p-6"><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-regular fa-calendar-check"></i></div><h3 class="font-bold text-white mb-1.5">24-hour provisioning plan</h3><p class="text-xs text-slate-300 leading-relaxed">A decision engine turns the forecast into an hourly Spot / On-Demand schedule.</p></div>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-diagram-project"></i> Engineering architecture</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glass-card rounded-2xl p-5"><div class="flex items-center justify-between mb-2"><span class="text-[11px] font-mono text-cyan-400">STEP 01</span><span class="badge badge-progress !text-[10px] !py-0.5">In progress</span></div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-database"></i></div><h3 class="font-bold text-white mb-1.5">Data Ingestion</h3><p class="text-xs text-slate-300 leading-relaxed">Collect CloudWatch Auto Scaling Group metrics and EC2 Spot price history with boto3.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="flex items-center justify-between mb-2"><span class="text-[11px] font-mono text-cyan-400">STEP 02</span><span class="badge badge-neutral !text-[10px] !py-0.5">Planned</span></div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-filter"></i></div><h3 class="font-bold text-white mb-1.5">Preprocessing</h3><p class="text-xs text-slate-300 leading-relaxed">Clean and resample into an hourly pandas DataFrame, build calendar and exogenous features.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="flex items-center justify-between mb-2"><span class="text-[11px] font-mono text-cyan-400">STEP 03</span><span class="badge badge-neutral !text-[10px] !py-0.5">Planned</span></div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-chart-line"></i></div><h3 class="font-bold text-white mb-1.5">SARIMAX Forecasting</h3><p class="text-xs text-slate-300 leading-relaxed">Train a SARIMAX model with exogenous variables to forecast cluster load.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="flex items-center justify-between mb-2"><span class="text-[11px] font-mono text-cyan-400">STEP 04</span><span class="badge badge-neutral !text-[10px] !py-0.5">Planned</span></div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-desktop"></i></div><h3 class="font-bold text-white mb-1.5">Decision Engine &amp; Dashboard</h3><p class="text-xs text-slate-300 leading-relaxed">Generate the 24-hour provisioning schedule and display it in a Streamlit dashboard.</p></div>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-gear"></i> Tools &amp; frameworks</div>
+      <div class="flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">SARIMAX</span><span class="chip">pandas</span><span class="chip">boto3</span><span class="chip">AWS CloudWatch</span><span class="chip">EC2 Spot</span><span class="chip">Streamlit</span></div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-route"></i> Where it could go</div>
+      <div class="glass-card rounded-2xl p-6"><p class="text-slate-300 font-light">Designed with a production mindset: the approach could evolve into a FinOps tool for cloud cost optimization.</p></div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-circle-info"></i> Build status</div>
+      <div class="glass-card rounded-2xl p-6"><span class="badge badge-progress mb-3"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>In progress</span><p class="text-slate-300 font-light">This project is under active development. Results and code will be added as each step is completed.</p></div>
+    </div>
+  </article>
+
+  <!-- Detail: FreshClass -->
+  <article id="detail-freshclass" class="detail hidden" data-title="Fruit Quality Detection — FreshClass" data-title-fr="Détection de la qualité des fruits — FreshClass">
+    <div class="max-w-5xl mx-auto px-6 pt-10 pb-12">
+      <div class="flex items-center justify-between mb-10">
+        <a href="#projects" class="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-cyan-300 transition-colors"><i class="fa-solid fa-arrow-left text-xs"></i> Back to projects</a>
+        <span class="chip chip-cyan !text-[11px] uppercase tracking-widest">Vision / Deep Learning</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2.5 mb-5">
+        <span class="badge badge-cyan">Vision</span>
+        <span class="badge badge-blue">Team Project · 6 members</span>
+        <span class="badge badge-done"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Done</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">Fruit Quality Detection <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">FreshClass</span></h1>
+      <p class="mt-4 text-lg text-slate-300 font-light max-w-3xl">Image classification system that grades fruit as Good or Bad using transfer learning (MobileNetV2).</p>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <a class="btn-primary !text-xs" href="https://github.com/salahBerr0/fruit-quality-classifier" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i><span>View Team Repository on GitHub</span></a>
+        <span class="chip chip-cyan">Model: MobileNetV2</span>
+        <span class="chip chip-cyan">12 classes (6 fruits × Good/Bad)</span>
+        <span class="chip chip-cyan">~14,800 images</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-12">
+        <div class="glass-card rounded-2xl p-6 sm:p-8">
+          <div class="sec-label"><i class="fa-solid fa-bolt"></i> Operational context &amp; purpose</div>
+          <p class="text-slate-300 font-light leading-relaxed">Sorting fruit by quality is slow, subjective and inconsistent between operators. FreshClass automates the grading from a single photo: the user uploads an image and gets a Good (1st choice) or Bad (2nd choice) result with a confidence score.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6 sm:p-8">
+          <div class="sec-label"><i class="fa-solid fa-user-gear"></i> My role</div>
+          <p class="text-slate-300 font-light leading-relaxed"><strong class="text-white font-medium">Documentation Lead &amp; Test Evaluation</strong> in a team of 6: README, technical report, code documentation, final presentation, and model testing and evaluation.</p>
+          <p class="mt-4 pt-4 border-t border-white/5 text-xs font-mono text-slate-400"><i class="fa-regular fa-clock mr-1.5 text-cyan-400"></i>Université Badji Mokhtar-Annaba · 8 weeks (Nov–Dec 2025) · Agile sprints with Jira and GitHub</p>
+        </div>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-database"></i> Dataset</div>
+      <div class="glass-card rounded-2xl p-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="rounded-xl border border-white/10 bg-black/40 p-4 text-center text-sm text-slate-200"><i class="fa-solid fa-database text-cyan-400 mb-2 block"></i>Kaggle Fruits 360</div>
+          <div class="rounded-xl border border-white/10 bg-black/40 p-4 text-center text-sm text-slate-200"><i class="fa-solid fa-cloud text-cyan-400 mb-2 block"></i>Roboflow Universe</div>
+          <div class="rounded-xl border border-white/10 bg-black/40 p-4 text-center text-sm text-slate-200"><i class="fa-solid fa-camera text-cyan-400 mb-2 block"></i>Local smartphone photos</div>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-4"><span class="chip">Apple</span><span class="chip">Banana</span><span class="chip">Guava</span><span class="chip">Lime</span><span class="chip">Orange</span><span class="chip">Pomegranate</span></div>
+        <p class="mt-4 text-sm text-slate-300 font-light">About 14,800 images, balanced to roughly 1,200 per class, each fruit labelled Good or Bad.</p>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-diagram-project"></i> Engineering architecture</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 01</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-broom"></i></div><h3 class="font-bold text-white mb-1.5">Data Collection &amp; Cleaning</h3><p class="text-xs text-slate-300 leading-relaxed">Merge three sources, remove corrupted images, standardize labels, merge the ambiguous 'Mixed' class into Bad.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 02</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-sliders"></i></div><h3 class="font-bold text-white mb-1.5">Preprocessing</h3><p class="text-xs text-slate-300 leading-relaxed">Resize to 128×128, normalize pixels to 0–1, one-hot encode labels, 70/15/15 train/validation/test split.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 03</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-brain"></i></div><h3 class="font-bold text-white mb-1.5">Model Training</h3><p class="text-xs text-slate-300 leading-relaxed">MobileNetV2 pre-trained on ImageNet with a custom dense classifier, trained with Adam and early stopping.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 04</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-chart-column"></i></div><h3 class="font-bold text-white mb-1.5">Evaluation</h3><p class="text-xs text-slate-300 leading-relaxed">Per-class precision, recall and F1, plus a confusion matrix on the test set.</p></div>
+        <div class="glass-card rounded-2xl p-5"><div class="text-[11px] font-mono text-cyan-400 mb-2">STEP 05</div><div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-300 mb-3"><i class="fa-solid fa-desktop"></i></div><h3 class="font-bold text-white mb-1.5">Deployment</h3><p class="text-xs text-slate-300 leading-relaxed">FastAPI REST service in Docker and a Next.js web interface to upload an image and see the result.</p></div>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-scale-balanced"></i> Model selection</div>
+      <div class="glass-card rounded-2xl p-6"><p class="text-slate-300 font-light leading-relaxed">Five architectures were compared: a custom CNN, VGG16, ResNet50, MobileNetV2 and EfficientNet-B0. MobileNetV2 was selected for its balance of accuracy, small size (about 3.5M parameters) and fast inference.</p></div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-chart-line"></i> Evaluation</div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        <div class="glass-card rounded-2xl p-6 text-center"><div class="text-4xl font-extrabold text-cyan-300 font-mono">96.3%</div><div class="text-xs text-slate-400 mt-1">Test accuracy (2,218 test images)</div></div>
+        <div class="glass-card rounded-2xl p-6 text-center"><div class="text-4xl font-extrabold text-cyan-300 font-mono">12</div><div class="text-xs text-slate-400 mt-1">Classes</div></div>
+        <div class="glass-card rounded-2xl p-6 text-center"><div class="text-4xl font-extrabold text-cyan-300 font-mono">92–99%</div><div class="text-xs text-slate-400 mt-1">F1-score range per class</div></div>
+      </div>
+      <p class="mt-4 text-sm text-slate-400 font-light"><i class="fa-solid fa-circle-info text-cyan-400 mr-2"></i>Most confusions are between Good and Bad of the same fruit, mainly oranges.</p>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-shield-halved"></i> Challenges solved</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="glass-card rounded-2xl p-5"><h3 class="font-semibold text-cyan-300 mb-1.5">Keras 2.x vs 3.x incompatibility</h3><p class="text-xs text-slate-300 leading-relaxed">The trained model failed to load in the backend. Solved by exporting the weights and rebuilding the architecture.</p></div>
+        <div class="glass-card rounded-2xl p-5"><h3 class="font-semibold text-cyan-300 mb-1.5">Class imbalance</h3><p class="text-xs text-slate-300 leading-relaxed">Rebalanced the dataset so each class has about 1,200 images.</p></div>
+        <div class="glass-card rounded-2xl p-5"><h3 class="font-semibold text-cyan-300 mb-1.5">Ambiguous 'Mixed' class</h3><p class="text-xs text-slate-300 leading-relaxed">Merged into Bad after manual review, to match the 1st choice / 2nd choice need.</p></div>
+        <div class="glass-card rounded-2xl p-5"><h3 class="font-semibold text-cyan-300 mb-1.5">Corrupted images</h3><p class="text-xs text-slate-300 leading-relaxed">47 files detected and removed.</p></div>
+      </div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-gear"></i> Tools &amp; frameworks</div>
+      <div class="flex flex-wrap gap-2"><span class="chip">Python</span><span class="chip">TensorFlow / Keras</span><span class="chip">MobileNetV2</span><span class="chip">NumPy</span><span class="chip">Pillow</span><span class="chip">scikit-learn</span><span class="chip">FastAPI</span><span class="chip">Docker</span><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Tailwind CSS</span><span class="chip">GitHub</span><span class="chip">Jira</span></div>
+
+      <div class="sec-label mt-14"><i class="fa-solid fa-route"></i> Next steps</div>
+      <div class="glass-card rounded-2xl p-6"><p class="text-slate-300 font-light">More fruit categories, a mobile app, and real-time detection on a conveyor camera.</p></div>
+    </div>
+  </article>
+
+  <!-- Shared CTA for detail pages -->
+  <section class="max-w-4xl mx-auto px-6 pb-20 text-center">
+    <div class="glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden border border-cyan-500/20">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Want to discuss this project? Get in touch</h2>
+      <p class="text-sm sm:text-base text-slate-300 max-w-lg mx-auto mb-8 font-light">Open to technical discussions about data science, machine learning and collaboration opportunities.</p>
+      <div class="link-group flex flex-wrap items-center justify-center gap-4">
+        <a data-link="email" class="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium text-sm shadow-glow-blue transition-all flex items-center gap-2" href="#"><i class="fa-solid fa-envelope"></i><span>Get in Touch</span></a>
+        <a data-link="linkedin" class="px-6 py-3 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-200 font-medium text-sm border border-slate-700 transition-colors flex items-center gap-2" href="#"><i class="fa-brands fa-linkedin-in text-cyan-400"></i><span>LinkedIn Profile</span></a>
+        <p class="link-fallback hidden text-sm text-slate-400 font-mono">Contact links coming soon.</p>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative z-10 border-t border-slate-800/70 bg-[#02050c] py-8 text-xs font-mono text-slate-500">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div>© <span id="year">2026</span> <span class="text-slate-300">Mohamed Saber TATA</span>. All rights reserved. Data Science Engineering.</div>
+    <div class="flex flex-wrap items-center justify-center gap-6 text-slate-400">
+      <a class="hover:text-cyan-400 transition-colors" href="#home">Back to top ↑</a>
+      <a class="hover:text-cyan-400 transition-colors" href="#skills">Expertise</a>
+      <a class="hover:text-cyan-400 transition-colors" href="#experience">Experience</a>
+      <a class="hover:text-cyan-400 transition-colors" href="#projects">Projects</a>
+      <a class="hover:text-cyan-400 transition-colors" href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* =====================================================
+     EDIT ME: your links. Empty value = button hidden.
+     CV files go next to index.html (cv_en.pdf / cv_fr.pdf)
+     ===================================================== */
+  const CONFIG = {
+    email: "tmsaber221@gmail.com",
+    linkedin: "https://www.linkedin.com/in/mohamed-saber-tata-85740b398",
+    github: "https://github.com/tmsaber",
+    cv: { en: "cv_en.pdf", fr: "cv_fr.pdf" }
+  };
+
+  /* French translations: key = exact English text, value = French */
+  const FR = {
+ "DATA SCIENCE ENGINEER": "INGÉNIEUR DATA SCIENCE",
+ "About": "À propos",
+ "Skills": "Compétences",
+ "Experience": "Expérience",
+ "Projects": "Projets",
+ "Contact": "Contact",
+ "Download CV": "Télécharger le CV",
+ "Portfolio / Machine Learning & Data Science": "Portfolio / Machine Learning et science des données",
+ "Data Science Engineer": "Ingénieur en science des données",
+ "Transforming complex data into predictive intelligence, machine learning systems, and high-impact digital solutions.": "Transformer des données complexes en intelligence prédictive, en systèmes de machine learning et en solutions numériques à fort impact.",
+ "ml-workflow // overview": "ml-workflow // vue d'ensemble",
+ "ILLUSTRATIVE": "ILLUSTRATIF",
+ "Machine Learning Workflow": "Workflow de machine learning",
+ "From raw data to working models": "Des données brutes aux modèles opérationnels",
+ "Data cleaning, feature engineering, model training and evaluation across NLP, computer vision and time-series projects.": "Nettoyage des données, ingénierie des variables, entraînement et évaluation de modèles sur des projets de NLP, de vision par ordinateur et de séries temporelles.",
+ "Data": "Données",
+ "Features": "Variables",
+ "Model": "Modèle",
+ "Evaluate": "Évaluer",
+ "View Projects": "Voir les projets",
+ "Training progress (illustrative)": "Progression de l'entraînement (illustratif)",
+ "no real data": "aucune donnée réelle",
+ "Tools I work with": "Outils que j'utilise",
+ "Data science, built end to end": "La science des données, de bout en bout",
+ "I'm a final-year (5th-year) Data Science engineering student at Université Badji Mokhtar-Annaba, based in Annaba, Algeria. I work across machine learning, NLP, computer vision and web development, and I like taking a project from raw data to something people can actually use, with Python, TensorFlow, PyTorch and React.": "Je suis étudiant en dernière année (5e année) du cycle ingénieur en science des données à l'Université Badji Mokhtar-Annaba, à Annaba (Algérie). Je travaille sur le machine learning, le NLP, la vision par ordinateur et le développement web, et j'aime mener un projet des données brutes jusqu'à un outil réellement utilisable, avec Python, TensorFlow, PyTorch et React.",
+ "Machine Learning & AI": "Machine Learning et IA",
+ "Supervised and unsupervised learning, NLP, reinforcement learning, and decision-making under uncertainty.": "Apprentissage supervisé et non supervisé, NLP, apprentissage par renforcement et prise de décision dans l'incertain.",
+ "Data Analysis": "Analyse de données",
+ "Data cleaning, preprocessing and feature engineering for tabular, text and image data.": "Nettoyage, prétraitement et ingénierie des variables pour des données tabulaires, textuelles et d'images.",
+ "Deep Learning & Vision": "Deep Learning et vision",
+ "Image classification and facial expression recognition with TensorFlow, PyTorch and computer vision tools.": "Classification d'images et reconnaissance d'expressions faciales avec TensorFlow, PyTorch et des outils de vision par ordinateur.",
+ "Predictive Modeling": "Modélisation prédictive",
+ "Time-series forecasting (SARIMAX), classification and optimization models.": "Prévision de séries temporelles (SARIMAX), classification et modèles d'optimisation.",
+ "Projects Built": "Projets réalisés",
+ "Degree Expected": "Diplôme attendu",
+ "Final Year": "Dernière année",
+ "Data Science Eng.": "Ing. science des données",
+ "View My Work": "Voir mes travaux",
+ "Core Technology Ecosystem": "Écosystème technologique",
+ "Career journey & academic background": "Parcours professionnel et formation",
+ "Experience & Education": "Expérience et formation",
+ "A timeline of academic specialization in Data Science and hands-on professional immersion.": "Une chronologie de la spécialisation académique en science des données et de l'immersion professionnelle sur le terrain.",
+ "Education": "Formation",
+ "Engineering Student, Computer Science (Data Science)": "Étudiant ingénieur en informatique (science des données)",
+ "Université Badji Mokhtar-Annaba, Faculty of Technology": "Université Badji Mokhtar-Annaba, Faculté de Technologie",
+ "Advanced modules:": "Modules avancés :",
+ "Generative AI, Computer Vision, NLP, Reinforcement Learning, Uncertainty Management.": "IA générative, vision par ordinateur, NLP, apprentissage par renforcement, gestion de l'incertitude.",
+ "Internship": "Stage",
+ "Mar – Apr 2026 · 7 working days": "Mars – avr. 2026 · 7 jours ouvrables",
+ "IT & Information Systems Intern": "Stagiaire en informatique et systèmes d'information",
+ "Annaba, Algeria": "Annaba, Algérie",
+ "Analyzed the port's information system and how it supports operations.": "Analyse du système d'information du port et de son rôle dans les opérations.",
+ "Mapped the main business processes: vessel management, cargo and container handling, and billing.": "Cartographie des principaux processus métier : gestion des navires, manutention des marchandises et conteneurs, facturation.",
+ "Studied the network architecture and infrastructure of the IT environment.": "Étude de l'architecture réseau et de l'infrastructure de l'environnement informatique.",
+ "Wrote a full internship report and a presentation documenting the findings.": "Rédaction d'un rapport de stage complet et d'une présentation des résultats.",
+ "Information Systems": "Systèmes d'information",
+ "Business Processes": "Processus métier",
+ "Network Architecture": "Architecture réseau",
+ "Technical Reporting": "Rédaction technique",
+ "Portfolio / Showcase": "Portfolio / Vitrine",
+ "Featured Engineering Projects": "Projets d'ingénierie en vedette",
+ "NLP classification, cloud cost optimization and computer vision projects.": "Projets de classification NLP, d'optimisation des coûts cloud et de vision par ordinateur.",
+ "All": "Tous",
+ "Personal Project": "Projet personnel",
+ "Done": "Terminé",
+ "In progress": "En cours",
+ "Planned": "Prévu",
+ "Metric: Macro F1-Score": "Métrique : Macro F1-Score",
+ "Customer Complaint Classification — Algérie Télécom": "Classification des réclamations clients — Algérie Télécom",
+ "Built from the Hackathon FORSA tic challenge brief": "Réalisé à partir du cahier des charges du défi Hackathon FORSA tic",
+ "AI system that classifies customer complaints written in Algerian dialect (Darija) from two sources, social media comments and call-center tickets, to detect topics and help support teams prioritize critical cases.": "Système d'IA qui classe des réclamations clients rédigées en dialecte algérien (darija) provenant de deux sources, commentaires de réseaux sociaux et tickets de centre d'appel, pour détecter les sujets et aider les équipes de support à prioriser les cas critiques.",
+ "Social Media Comments": "Commentaires de réseaux sociaux",
+ "~30,000 comments · 9 classes": "~30 000 commentaires · 9 classes",
+ "Call-Center Tickets": "Tickets de centre d'appel",
+ "structured data · 6 classes": "données structurées · 6 classes",
+ "View Project Details": "Voir les détails du projet",
+ "View on GitHub": "Voir sur GitHub",
+ "Code coming soon": "Code bientôt disponible",
+ "classification-preview": "aperçu-classification",
+ "Darija NLP": "NLP darija",
+ "Class confusion matrix (illustrative)": "Matrice de confusion des classes (illustratif)",
+ "Darija & code-switching": "Darija et alternance de langues",
+ "no real scores shown": "aucun score réel affiché",
+ "AWS Compute": "Calcul AWS",
+ "Time-series forecasting engine (SARIMAX) that predicts cluster compute load and optimizes AWS Spot vs On-Demand allocation to minimize cloud costs, with a 24-hour provisioning schedule and an interactive dashboard.": "Moteur de prévision de séries temporelles (SARIMAX) qui prédit la charge de calcul d'un cluster et optimise l'allocation AWS Spot / On-Demand pour minimiser les coûts cloud, avec un planning de provisionnement sur 24 heures et un tableau de bord interactif.",
+ "Key Highlights": "Points clés",
+ "Forecasts cluster-wide load, not a single instance": "Prévoit la charge de l'ensemble du cluster, pas d'une seule instance",
+ "Uses Spot price trends, user load and time features as exogenous inputs": "Utilise les tendances de prix Spot, la charge utilisateur et des variables temporelles comme entrées exogènes",
+ "Decision engine outputs a 24h provisioning plan": "Le moteur de décision produit un plan de provisionnement sur 24 h",
+ "forecast-preview": "aperçu-prévision",
+ "Illustrative": "Illustratif",
+ "illustrative": "illustratif",
+ "Cluster compute load · 24h forecast": "Charge de calcul du cluster · prévision sur 24 h",
+ "Spot instances": "Instances Spot",
+ "On-Demand buffer": "Réserve On-Demand",
+ "no real data shown": "aucune donnée réelle affichée",
+ "Team Project": "Projet d'équipe",
+ "Fruit Quality Detection": "Détection de la qualité des fruits",
+ "Image classification system that grades fruit as Good or Bad (6 fruits × 2 qualities) using transfer learning with MobileNetV2, with a FastAPI backend and a Next.js web interface.": "Système de classification d'images qui évalue les fruits comme Bons ou Mauvais (6 fruits × 2 qualités) par transfert d'apprentissage avec MobileNetV2, avec un backend FastAPI et une interface web Next.js.",
+ "Classification preview": "Aperçu de classification",
+ "GOOD": "BON",
+ "BAD": "MAUVAIS",
+ "Facial Emotion Detection": "Détection des émotions faciales",
+ "Facial expression recognition that detects emotions such as happy, sad and angry.": "Reconnaissance d'expressions faciales qui détecte des émotions comme la joie, la tristesse et la colère.",
+ "Emotion classes": "Classes d'émotions",
+ "Happy": "Joyeux",
+ "Sad": "Triste",
+ "Angry": "En colère",
+ "More": "Autres",
+ "Computer Vision": "Vision par ordinateur",
+ "Deep Learning": "Deep Learning",
+ "Details coming soon": "Détails bientôt disponibles",
+ "Interested in working together?": "Envie de travailler ensemble ?",
+ "Open to internships, projects and collaborations in data science, machine learning and AI. Let's connect.": "Ouvert aux stages, aux projets et aux collaborations en science des données, machine learning et IA. Échangeons.",
+ "Get in Touch": "Me contacter",
+ "LinkedIn Profile": "Profil LinkedIn",
+ "Contact links coming soon.": "Liens de contact bientôt disponibles.",
+ "Back to projects": "Retour aux projets",
+ "NLP / Customer Intelligence": "NLP / Intelligence client",
+ "FORSA tic Hackathon Brief": "Cahier des charges Hackathon FORSA tic",
+ "Customer Complaint Classification": "Classification des réclamations clients",
+ "Built from the Hackathon FORSA tic challenge brief: dialectal NLP and ticket classification for telecom customer support.": "Réalisé à partir du cahier des charges du Hackathon FORSA tic : NLP dialectal et classification de tickets pour le support client télécom.",
+ "Target: Macro F1-Score": "Objectif : Macro F1-Score",
+ "Language: Algerian Darija & code-switching": "Langue : darija algérien et alternance de langues",
+ "Operational context & purpose": "Contexte opérationnel et objectif",
+ "Large-scale telecom support, too much to read by hand": "Un support télécom à grande échelle, trop volumineux pour être lu à la main",
+ "Algérie Télécom receives thousands of customer messages every day through social media and its call center. The volume and the mix of dialects and languages make manual triage impossible. This project builds an automated machine learning and NLP approach to classify these complaints by nature, so support teams can route and prioritize them faster.": "Algérie Télécom reçoit chaque jour des milliers de messages clients via les réseaux sociaux et son centre d'appel. Le volume et le mélange de dialectes et de langues rendent le tri manuel impossible. Ce projet construit une approche automatisée de machine learning et de NLP pour classer ces réclamations par nature, afin que les équipes de support puissent les orienter et les prioriser plus vite.",
+ "Challenge breakdown": "Détail des défis",
+ "Unstructured NLP · 9 classes": "NLP non structuré · 9 classes",
+ "Challenge 1 — Social Media Comments": "Défi 1 — Commentaires de réseaux sociaux",
+ "Dataset scope:": "Périmètre des données :",
+ "about 30,000 comments from social media (Facebook, Twitter…).": "environ 30 000 commentaires de réseaux sociaux (Facebook, Twitter…).",
+ "Language:": "Langue :",
+ "informal text, phonetic spelling, emojis and noisy dialectal slang.": "texte informel, orthographe phonétique, émojis et argot dialectal bruité.",
+ "Structured multi-attribute · 6 classes": "Multi-attributs structurés · 6 classes",
+ "Challenge 2 — Call-Center Tickets": "Défi 2 — Tickets de centre d'appel",
+ "complaint tickets recorded by the call-center management system.": "tickets de réclamation enregistrés par le système de gestion du centre d'appel.",
+ "Key attributes:": "Attributs clés :",
+ "service type, technology (ADSL / FTTH / 4G), processing department, location (Wilaya / ACTEL), technical vs commercial type.": "type de service, technologie (ADSL / FTTH / 4G), département de traitement, localisation (wilaya / ACTEL), type technique ou commercial.",
+ "Engineering approach": "Démarche d'ingénierie",
+ "STEP 01": "ÉTAPE 01",
+ "STEP 02": "ÉTAPE 02",
+ "STEP 03": "ÉTAPE 03",
+ "STEP 04": "ÉTAPE 04",
+ "STEP 05": "ÉTAPE 05",
+ "Data Cleaning & Preprocessing": "Nettoyage et prétraitement des données",
+ "Clean and normalize the text: Darija, Arabic script, French-Arabic mixes, noise and punctuation.": "Nettoyage et normalisation du texte : darija, écriture arabe, mélanges français-arabe, bruit et ponctuation.",
+ "Feature Engineering": "Ingénierie des variables",
+ "Turn text and structured ticket fields into inputs the models can learn from.": "Transformation du texte et des champs structurés des tickets en entrées exploitables par les modèles.",
+ "Model Training & Validation": "Entraînement et validation des modèles",
+ "Train and compare classification models for each of the two challenges.": "Entraînement et comparaison de modèles de classification pour chacun des deux défis.",
+ "Inference & Evaluation": "Inférence et évaluation",
+ "Predict the class of new complaints and evaluate with the Macro F1-Score.": "Prédiction de la classe de nouvelles réclamations et évaluation avec le Macro F1-Score.",
+ "Challenges & objectives": "Défis et objectifs",
+ "Algerian dialect (Darija)": "Dialecte algérien (darija)",
+ "Non-standard spelling, written in Arabic script and in Latin letters (Arabizi).": "Orthographe non standardisée, écrite en alphabet arabe et en lettres latines (arabizi).",
+ "Arabic-French code-switching": "Alternance arabe-français",
+ "Customers mix Arabic and French in the same sentence, including technical terms.": "Les clients mélangent l'arabe et le français dans la même phrase, y compris pour les termes techniques.",
+ "Noisy social text": "Texte social bruité",
+ "Short, informal comments with emojis, slang and irregular punctuation.": "Commentaires courts et informels, avec émojis, argot et ponctuation irrégulière.",
+ "Prioritizing critical cases": "Priorisation des cas critiques",
+ "The challenge aims to help teams surface urgent complaints first.": "Le défi vise à aider les équipes à faire remonter en premier les réclamations urgentes.",
+ "Tools & frameworks": "Outils et frameworks",
+ "Evaluation": "Évaluation",
+ "Results coming soon": "Résultats bientôt disponibles",
+ "Results will be added here soon.": "Les résultats seront ajoutés ici prochainement.",
+ "Data / Cloud FinOps": "Données / FinOps cloud",
+ "SARIMAX-based forecasting to optimize AWS Spot vs On-Demand allocation.": "Prévision basée sur SARIMAX pour optimiser l'allocation AWS Spot et On-Demand.",
+ "Method: SARIMAX time-series": "Méthode : séries temporelles SARIMAX",
+ "Scope: AWS Auto Scaling Group (cluster level)": "Périmètre : AWS Auto Scaling Group (niveau cluster)",
+ "Cutting cloud compute cost with forecasting": "Réduire le coût du calcul cloud grâce à la prévision",
+ "Cloud compute cost depends on how well capacity is matched to demand. This project forecasts cluster-wide compute load and uses it to decide, hour by hour, how much capacity to run on cheaper but interruptible Spot instances versus reliable On-Demand instances, in order to minimize total cost.": "Le coût du calcul cloud dépend de l'adéquation entre la capacité et la demande. Ce projet prévoit la charge de calcul de l'ensemble du cluster et s'en sert pour décider, heure par heure, quelle part de la capacité faire tourner sur des instances Spot moins chères mais interruptibles, ou sur des instances On-Demand fiables, afin de minimiser le coût total.",
+ "Key design decisions": "Décisions de conception clés",
+ "Cluster-level view": "Vue au niveau du cluster",
+ "Metrics are aggregated across a whole AWS Auto Scaling Group instead of a single EC2 instance.": "Les métriques sont agrégées sur un Auto Scaling Group AWS entier plutôt que sur une seule instance EC2.",
+ "Exogenous features": "Variables exogènes",
+ "The forecasting model uses Spot price trends, active user load, hour of day and day of week.": "Le modèle de prévision utilise les tendances de prix Spot, la charge utilisateur active, l'heure et le jour de la semaine.",
+ "24-hour provisioning plan": "Plan de provisionnement sur 24 heures",
+ "A decision engine turns the forecast into an hourly Spot / On-Demand schedule.": "Un moteur de décision transforme la prévision en planning horaire Spot / On-Demand.",
+ "Engineering architecture": "Architecture d'ingénierie",
+ "Data Ingestion": "Ingestion des données",
+ "Collect CloudWatch Auto Scaling Group metrics and EC2 Spot price history with boto3.": "Collecte des métriques CloudWatch de l'Auto Scaling Group et de l'historique des prix EC2 Spot avec boto3.",
+ "Preprocessing": "Prétraitement",
+ "Clean and resample into an hourly pandas DataFrame, build calendar and exogenous features.": "Nettoyage et rééchantillonnage dans un DataFrame pandas horaire, construction des variables calendaires et exogènes.",
+ "SARIMAX Forecasting": "Prévision SARIMAX",
+ "Train a SARIMAX model with exogenous variables to forecast cluster load.": "Entraînement d'un modèle SARIMAX avec variables exogènes pour prévoir la charge du cluster.",
+ "Decision Engine & Dashboard": "Moteur de décision et tableau de bord",
+ "Generate the 24-hour provisioning schedule and display it in a Streamlit dashboard.": "Génération du planning de provisionnement sur 24 heures et affichage dans un tableau de bord Streamlit.",
+ "Where it could go": "Pistes d'évolution",
+ "Designed with a production mindset: the approach could evolve into a FinOps tool for cloud cost optimization.": "Conçu avec une logique de production : l'approche pourrait évoluer vers un outil FinOps d'optimisation des coûts cloud.",
+ "Build status": "État d'avancement",
+ "This project is under active development. Results and code will be added as each step is completed.": "Ce projet est en cours de développement actif. Les résultats et le code seront ajoutés au fil de l'avancement de chaque étape.",
+ "Vision / Deep Learning": "Vision / Deep Learning",
+ "Team Project · 6 members": "Projet d'équipe · 6 membres",
+ "Image classification system that grades fruit as Good or Bad using transfer learning (MobileNetV2).": "Système de classification d'images qui évalue les fruits comme Bons ou Mauvais par transfert d'apprentissage (MobileNetV2).",
+ "View Team Repository on GitHub": "Voir le dépôt de l'équipe sur GitHub",
+ "Model: MobileNetV2": "Modèle : MobileNetV2",
+ "12 classes (6 fruits × Good/Bad)": "12 classes (6 fruits × Bon/Mauvais)",
+ "~14,800 images": "~14 800 images",
+ "Sorting fruit by quality is slow, subjective and inconsistent between operators. FreshClass automates the grading from a single photo: the user uploads an image and gets a Good (1st choice) or Bad (2nd choice) result with a confidence score.": "Le tri des fruits par qualité est lent, subjectif et incohérent d'un opérateur à l'autre. FreshClass automatise l'évaluation à partir d'une simple photo : l'utilisateur téléverse une image et obtient un résultat Bon (1er choix) ou Mauvais (2e choix) avec un score de confiance.",
+ "My role": "Mon rôle",
+ "Documentation Lead & Test Evaluation": "Responsable de la documentation et de l'évaluation des tests",
+ "in a team of 6: README, technical report, code documentation, final presentation, and model testing and evaluation.": "dans une équipe de 6 : README, rapport technique, documentation du code, présentation finale, et tests et évaluation du modèle.",
+ "Université Badji Mokhtar-Annaba · 8 weeks (Nov–Dec 2025) · Agile sprints with Jira and GitHub": "Université Badji Mokhtar-Annaba · 8 semaines (nov.–déc. 2025) · Sprints agiles avec Jira et GitHub",
+ "Dataset": "Jeu de données",
+ "Kaggle Fruits 360": "Kaggle Fruits 360",
+ "Roboflow Universe": "Roboflow Universe",
+ "Local smartphone photos": "Photos locales prises au smartphone",
+ "Apple": "Pomme",
+ "Banana": "Banane",
+ "Guava": "Goyave",
+ "Lime": "Citron vert",
+ "Pomegranate": "Grenade",
+ "About 14,800 images, balanced to roughly 1,200 per class, each fruit labelled Good or Bad.": "Environ 14 800 images, équilibrées à environ 1 200 par classe, chaque fruit étant étiqueté Bon ou Mauvais.",
+ "Data Collection & Cleaning": "Collecte et nettoyage des données",
+ "Merge three sources, remove corrupted images, standardize labels, merge the ambiguous 'Mixed' class into Bad.": "Fusion de trois sources, suppression des images corrompues, standardisation des étiquettes, fusion de la classe ambiguë « Mixed » dans Mauvais.",
+ "Resize to 128×128, normalize pixels to 0–1, one-hot encode labels, 70/15/15 train/validation/test split.": "Redimensionnement en 128×128, normalisation des pixels entre 0 et 1, encodage one-hot des étiquettes, découpage 70/15/15 en entraînement/validation/test.",
+ "Model Training": "Entraînement du modèle",
+ "MobileNetV2 pre-trained on ImageNet with a custom dense classifier, trained with Adam and early stopping.": "MobileNetV2 pré-entraîné sur ImageNet avec un classifieur dense personnalisé, entraîné avec Adam et arrêt anticipé.",
+ "Per-class precision, recall and F1, plus a confusion matrix on the test set.": "Précision, rappel et F1 par classe, plus une matrice de confusion sur le jeu de test.",
+ "Deployment": "Déploiement",
+ "FastAPI REST service in Docker and a Next.js web interface to upload an image and see the result.": "Service REST FastAPI dans Docker et interface web Next.js pour téléverser une image et voir le résultat.",
+ "Model selection": "Choix du modèle",
+ "Five architectures were compared: a custom CNN, VGG16, ResNet50, MobileNetV2 and EfficientNet-B0. MobileNetV2 was selected for its balance of accuracy, small size (about 3.5M parameters) and fast inference.": "Cinq architectures ont été comparées : un CNN personnalisé, VGG16, ResNet50, MobileNetV2 et EfficientNet-B0. MobileNetV2 a été retenu pour son équilibre entre exactitude, petite taille (environ 3,5 M de paramètres) et inférence rapide.",
+ "96.3%": "96,3 %",
+ "92–99%": "92–99 %",
+ "Test accuracy (2,218 test images)": "Exactitude sur le jeu de test (2 218 images)",
+ "Classes": "Classes",
+ "F1-score range per class": "Plage de F1-score par classe",
+ "Most confusions are between Good and Bad of the same fruit, mainly oranges.": "La plupart des confusions concernent Bon et Mauvais pour un même fruit, principalement les oranges.",
+ "Challenges solved": "Défis résolus",
+ "Keras 2.x vs 3.x incompatibility": "Incompatibilité Keras 2.x / 3.x",
+ "The trained model failed to load in the backend. Solved by exporting the weights and rebuilding the architecture.": "Le modèle entraîné ne se chargeait pas dans le backend. Résolu en exportant les poids et en reconstruisant l'architecture.",
+ "Class imbalance": "Déséquilibre des classes",
+ "Rebalanced the dataset so each class has about 1,200 images.": "Jeu de données rééquilibré pour avoir environ 1 200 images par classe.",
+ "Ambiguous 'Mixed' class": "Classe ambiguë « Mixed »",
+ "Merged into Bad after manual review, to match the 1st choice / 2nd choice need.": "Fusionnée dans Mauvais après revue manuelle, pour correspondre au besoin 1er choix / 2e choix.",
+ "Corrupted images": "Images corrompues",
+ "47 files detected and removed.": "47 fichiers détectés et supprimés.",
+ "Next steps": "Prochaines étapes",
+ "More fruit categories, a mobile app, and real-time detection on a conveyor camera.": "Plus de catégories de fruits, une application mobile et une détection en temps réel avec une caméra sur tapis roulant.",
+ "Want to discuss this project? Get in touch": "Envie d'échanger sur ce projet ? Contactez-moi",
+ "Open to technical discussions about data science, machine learning and collaboration opportunities.": "Ouvert aux échanges techniques sur la science des données, le machine learning et les opportunités de collaboration.",
+ ". All rights reserved. Data Science Engineering.": ". Tous droits réservés. Ingénierie en science des données.",
+ "Back to top ↑": "Retour en haut ↑",
+ "Expertise": "Expertise",
+ "Back to top": "Retour en haut",
+ "Primary": "Principale",
+ "Language": "Langue",
+ "Toggle light or dark theme": "Basculer le thème clair ou sombre",
+ "Open menu": "Ouvrir le menu",
+ "Mobile": "Mobile",
+ "Illustrative machine learning workflow": "Workflow de machine learning illustratif",
+ "Highlights": "Points forts",
+ "Technology": "Technologie",
+ "Filter projects": "Filtrer les projets",
+ "Portfolio of Mohamed Saber TATA, Data Science engineering student: machine learning, NLP, computer vision and time-series forecasting projects.": "Portfolio de Mohamed Saber TATA, étudiant ingénieur en science des données : projets de machine learning, NLP, vision par ordinateur et prévision de séries temporelles."
+};
+  const HOME_TITLE = { en: "Mohamed Saber TATA | Data Science Engineer Portfolio", fr: "Mohamed Saber TATA | Portfolio d'ingénieur en science des données" };
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  };
+  const norm = s => s.replace(/\s+/g, ' ').trim();
+
+  /* ---- Contact links (empty = hidden) ---- */
+  $$('[data-link]').forEach(a => {
+    const key = a.dataset.link;
+    if (key === 'cv') return; // handled by the language switch
+    const val = CONFIG[key];
+    if (!val) { a.classList.add('hidden'); return; }
+    a.setAttribute('href', key === 'email' ? 'mailto:' + val : val);
+    if (key !== 'email') { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+  });
+  $$('.link-group').forEach(g => {
+    const anyVisible = $$('[data-link]', g).some(a => !a.classList.contains('hidden'));
+    const fb = $('.link-fallback', g); if (fb) fb.classList.toggle('hidden', anyVisible);
+  });
+
+  /* ---- Decorative hero bars + heatmap (no data) ---- */
+  const bars = [35, 48, 42, 65, 58, 82, 94];
+  $('#hero-bars').innerHTML = bars.map((h, i) =>
+    `<div class="w-full bg-blue-950/40 rounded-t-sm flex flex-col justify-end" style="height:${h}%">
+       <div class="w-full h-full rounded-t-sm ${i >= 5 ? 'bg-gradient-to-t from-blue-600 via-cyan-400 to-white shadow-[0_0_15px_rgba(0,210,255,0.7)]' : 'bg-gradient-to-t from-blue-700 to-cyan-400'}" style="opacity:${i >= 5 ? 1 : 0.55 + i * 0.05}"></div>
+     </div>`).join('');
+  (function heatmap() {
+    const el = $('#heatmap'); let html = '';
+    for (let r = 0; r < 9; r++) for (let c = 0; c < 9; c++) {
+      if (r === c) html += '<div class="rounded-sm bg-cyan-400" style="box-shadow:0 0 10px rgba(0,210,255,.6)"></div>';
+      else {
+        const v = ((r * 7 + c * 13) % 10) / 10;
+        html += `<div class="rounded-sm" style="background:rgba(37,99,235,${(0.05 + v * 0.3).toFixed(2)})"></div>`;
+      }
+    }
+    el.innerHTML = html;
+  })();
+
+  /* ---- Mobile menu ---- */
+  const menuBtn = $('#menu-btn'), mobileMenu = $('#mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  $$('#mobile-menu a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded', 'false'); }));
+
+  /* ---- Project filter ---- */
+  $$('.filter-btn').forEach(btn => btn.addEventListener('click', () => {
+    $$('.filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+    const f = btn.dataset.filter;
+    $$('.project-card').forEach(card => card.classList.toggle('hidden', !(f === 'all' || card.dataset.category === f)));
+  }));
+
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---- Language (EN / FR) ---- */
+  let lang = 'en';
+  const textNodes = [], attrNodes = [];
+  const metaDesc = $('#meta-desc'), metaDescEn = metaDesc ? metaDesc.getAttribute('content') : '';
+  function collectText() {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, function (n) {
+      const p = n.parentNode && n.parentNode.nodeName;
+      if (!p || p === 'SCRIPT' || p === 'STYLE' || p === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
+      return /\S/.test(n.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    });
+    let n; while ((n = walker.nextNode())) textNodes.push({ n, orig: n.nodeValue });
+    $$('[aria-label]').forEach(el => attrNodes.push({ el, orig: el.getAttribute('aria-label') }));
+  }
+  function detectLang() {
+    const saved = store.get('lang');
+    if (saved === 'en' || saved === 'fr') return saved;
+    const prefs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'en'];
+    for (const p of prefs) {
+      const c = String(p).toLowerCase();
+      if (c.startsWith('fr')) return 'fr';
+      if (c.startsWith('en')) return 'en';
+    }
+    return 'en';
+  }
+  let currentDetail = null;
+  function pageTitle() {
+    if (currentDetail) {
+      const t = (lang === 'fr' && currentDetail.dataset.titleFr) ? currentDetail.dataset.titleFr : currentDetail.dataset.title;
+      return t + ' | Mohamed Saber TATA';
+    }
+    return HOME_TITLE[lang];
+  }
+  function applyLang(l, persist) {
+    lang = l; if (persist) store.set('lang', l);
+    document.documentElement.lang = l;
+    textNodes.forEach(o => {
+      const fr = FR[norm(o.orig)];
+      if (l === 'fr' && fr) { const m = o.orig.match(/^(\s*)([\s\S]*?)(\s*)$/); o.n.nodeValue = m[1] + fr + m[3]; }
+      else o.n.nodeValue = o.orig;
+    });
+    attrNodes.forEach(o => o.el.setAttribute('aria-label', (l === 'fr' && FR[o.orig]) ? FR[o.orig] : o.orig));
+    if (metaDesc) metaDesc.setAttribute('content', (l === 'fr' && FR[metaDescEn]) ? FR[metaDescEn] : metaDescEn);
+    $$('[data-lang-btn]').forEach(b => { const on = b.dataset.langBtn === l; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on)); });
+    $$('[data-link="cv"]').forEach(a => {
+      const href = CONFIG.cv && CONFIG.cv[l];
+      if (!href) { a.classList.add('hidden'); return; }
+      a.setAttribute('href', href); a.setAttribute('download', '');
+    });
+    document.title = pageTitle();
+  }
+
+  /* ---- Theme (dark default, light optional) ---- */
+  const metaTheme = $('#meta-theme');
+  function applyTheme(t) {
+    document.documentElement.classList.toggle('light', t === 'light');
+    store.set('theme', t);
+    if (metaTheme) metaTheme.setAttribute('content', t === 'light' ? '#f1f5f9' : '#040711');
+  }
+  document.addEventListener('click', e => {
+    const lb = e.target.closest('[data-lang-btn]'); if (lb) applyLang(lb.dataset.langBtn, true);
+    const tb = e.target.closest('[data-theme-btn]');
+    if (tb) {
+      const root = document.documentElement;
+      root.classList.add('theme-anim');
+      applyTheme(root.classList.contains('light') ? 'dark' : 'light');
+      clearTimeout(window.__themeAnim); window.__themeAnim = setTimeout(() => root.classList.remove('theme-anim'), 1100);
+    }
+  });
+
+  /* ---- Hash router: home <-> project detail pages ---- */
+  const homeView = $('#home-view'), detailView = $('#detail-view');
+  function route() {
+    const h = location.hash;
+    if (h.startsWith('#/project/')) {
+      const el = document.getElementById('detail-' + h.slice('#/project/'.length));
+      if (el) {
+        currentDetail = el;
+        homeView.classList.add('hidden');
+        detailView.classList.remove('hidden');
+        $$('article.detail').forEach(a => a.classList.toggle('hidden', a !== el));
+        document.title = pageTitle();
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return;
+      }
+    }
+    const wasDetail = !detailView.classList.contains('hidden');
+    currentDetail = null;
+    detailView.classList.add('hidden');
+    homeView.classList.remove('hidden');
+    document.title = pageTitle();
+    const target = h.length > 1 && !h.startsWith('#/') ? document.getElementById(h.slice(1)) : null;
+    if (target) target.scrollIntoView({ behavior: wasDetail ? 'instant' : 'smooth' });
+    else if (wasDetail) window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  window.addEventListener('hashchange', route);
+
+  /* ---- Timeline scroll animation ---- */
+  (function () {
+    const items = $$('.timeline-item-anim');
+    if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('is-visible')); return; }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(el => obs.observe(el));
+  })();
+
+  /* ---- Start ---- */
+  collectText();
+  applyTheme(store.get('theme') === 'light' ? 'light' : 'dark');
+  applyLang(detectLang());
+  route();
+</script>
+</body>
+</html>
